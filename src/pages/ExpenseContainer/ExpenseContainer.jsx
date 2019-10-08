@@ -7,14 +7,22 @@ class ExpenseContainer extends Component {
     render() {
         let expense = this.props.expense.map(exp => {
             return (
-                <ExpenseCard
-                    key={exp.id}
-                    id={exp.id}
-                    name={exp.name}
-                    description={exp.description}
-                />
+                <>
+                    <NavBar />
+                    <ExpenseCard
+                        key={exp.id}
+                        id={exp.id}
+                        name={exp.name}
+                        description={exp.description}
+                        price={exp.price}
+                    />
+                </>
             )
         });
+
+        return (
+            {expense}
+        );
     }
 }
 

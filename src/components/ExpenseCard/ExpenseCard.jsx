@@ -5,9 +5,8 @@ import {Link} from 'react-router-dom';
 const ExpenseCard = (props) => {
     return (
         <div>
-            <Card>
-                <Link
-            </Card>
+            <Link to={`/expense${props.id}`}>
+            </Link>
         </div>
     )
 }

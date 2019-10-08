@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
 import ExpenseContainer from '../ExpenseContainer/ExpenseContainer';
+import SignupPage from '../SignupPage/SignupPage';
+import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 
 
@@ -35,7 +37,7 @@ class App extends Component {
               handleLogout={this.handleLogout}
             />
           }/>
-          <Route exact path="signup" render={({history}) =>
+          <Route exact path="/signup" render={({history}) =>
             <SignupPage
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
