@@ -1,10 +1,24 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
 import ExpenseBoardPage from '../ExpenseBoardPage/ExpenseBoardPage';
 
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      user: userService.getUser()
+    };
+  }
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({user: null});
+  }
+
+  
+
   render() {
     return (
       <div className="App">
