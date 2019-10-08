@@ -1,5 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
+import ExpenseCard from '../../components/ExpenseCard/ExpenseCard';
 
 const ExpenseBoardPage = (props) => {
     return (
@@ -15,7 +17,7 @@ const ExpenseBoardPage = (props) => {
                 <Link>New Expense Card</Link>
             </div>
             <footer>
-
+                &copy; Sonnia J. Kemmer 2019
             </footer>
         </div>
     );

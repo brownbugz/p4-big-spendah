@@ -13,7 +13,7 @@ class App extends Component {
         </header>
 
         <main>
-          Expense Board
+          <ExpenseBoardPage />
         </main>
       </div>
     );
