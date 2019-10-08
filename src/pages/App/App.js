@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import {Route, Switch, Redirect} from 'react-router-dom';
+import ExpenseBoardPage from '../ExpenseBoardPage/ExpenseBoardPage';
+
 
 class App extends Component {
   render() {
@@ -8,6 +11,7 @@ class App extends Component {
         <header className="App-header">
           <h2>Hey Big Spendah!</h2>
         </header>
+
         <main>
           Expense Board
         </main>
