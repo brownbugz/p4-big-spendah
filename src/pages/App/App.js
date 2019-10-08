@@ -6,8 +6,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Hey Big Spendah!</h1>
-          <h3>Expense Tracker</h3>
+          <h2>Hey Big Spendah!</h2>
         </header>
         <main>
           Expense Board
