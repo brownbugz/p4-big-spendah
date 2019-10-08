@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
-import {Switch} from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import ExpenseCard from '../../components/ExpenseCard/ExpenseCard';
+import Col from 'react-bootstrap/Col';
 
 class ExpenseContainer extends Component {
     render() {
         let expense = this.props.expense.map(exp => {
             return (
-                <div>
-                    <NavBar />
-                </div>
                 <div>
                     <ExpenseCard
                         key={exp.id}
@@ -23,7 +20,9 @@ class ExpenseContainer extends Component {
         });
 
         return (
-            {expense}
+            <Col>
+                {expense}
+            </Col>
         );
     }
 }
