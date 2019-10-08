@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
-import ExpenseBoardPage from '../ExpenseBoardPage/ExpenseBoardPage';
+import ExpenseContainer from '../ExpenseContainer/ExpenseContainer';
 import userService from '../../utils/userService';
 
 
@@ -30,7 +30,7 @@ class App extends Component {
         </header>
         <Switch>
           <Route exact path="/" render={() =>
-            <ExpenseBoardPage 
+            <ExpenseContainer 
               user={this.state.user}
               handleLogout={this.handleLogout}
             />

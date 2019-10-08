@@ -1,12 +1,13 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 
 const ExpenseCard = (props) => {
     return (
         <div>
-            <ul>
-                <li>Item: <input type="String"></input></li>
-                <li>Price: <input type="Number"></input></li>
-            </ul>
+            <Card>
+                <Link
+            </Card>
         </div>
     )
 }
