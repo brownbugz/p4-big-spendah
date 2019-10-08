@@ -17,7 +17,7 @@ const ExpenseBoardPage = (props) => {
                 <Link>New Expense Card</Link>
             </div>
             <footer>
-                &copy; Sonnia J. Kemmer 2019
+                &copy; Sonnia J. Kemmer || 2019
             </footer>
         </div>
     );
