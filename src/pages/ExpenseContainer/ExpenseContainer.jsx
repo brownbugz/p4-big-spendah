@@ -1,28 +1,37 @@
-import React from 'react';
-import {Switch, Route} from 'react-router-dom';
-import ExpenseCard from '../../components/ExpenseCard/ExpenseCard';
-import Card from 'react-bootstrap';
+import React, {Component} from 'react';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 
-const ExpenseContainer = props => {
-  return (
-    <div>
-      <form className="App-form" onSubmit={props.onSubmit}>
-        <label>Category: <input type="text" name="category" /></label>
-        <br />
-        <label>Name of Item: <input type="text" name="name" /></label>
-        <br />
-        <label>Cost of Item: $<input type="number" /></label>
-        <br />
-        <button>Submit</button>
+
+class ExpenseContainer extends Component {
+  constructor() {
+    super();
+    this.state = {
+
+    };
+  }
+  
+  render() {
+    return (
+      <form onSubmit={props.onSubmit}>
+        <Container>
+          <Row>
+            <label>Category: <input type="text" name="category" /></label>
+          </Row>
+          <Row>
+            <label>Name of Item: <input type="text" name="name" /></label>
+          </Row>
+          <Row>
+            <label>Cost of Item: $<input type="number" /></label>
+          </Row>
+          <Row>
+            <button>Submit</button>
+          </Row>
+        </Container>
       </form>
-    </div>
-
-    <Switch>
-        <Route exact path="/expenses" render={({history}) => 
-          <ExpenseCard />
-        } />
-    </Switch>
-  )
+    );
+  }
+   
 }
 
 export default ExpenseContainer;
