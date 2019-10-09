@@ -10,11 +10,25 @@ import userService from '../../utils/userService';
 
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      user: userService.getUser()
+      user: userService.getUser(),
+      term: "",
+      items: [],
     };
+  }
+
+  onChange = (event) => {
+    this.setState({term: event.target.value});
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    this.setState({
+      term: "",
+      items: [...this.state.items, this.state.term]
+    });
   }
 
   handleLogout = () => {
@@ -39,12 +53,6 @@ class App extends Component {
         />
 
         <Switch>
-
-          <Route exact path="/" render={() =>
-            <ExpenseContainer 
-              
-            />
-          }/>
 
           <Route exact path="/signup" render={({history}) =>
             <SignupPage
