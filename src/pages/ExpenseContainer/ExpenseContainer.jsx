@@ -31,7 +31,7 @@ class ExpenseContainer extends Component {
       </form>
     );
   }
-   
+  //  the ExpenseCard should display at the bottom
 }
 
 export default ExpenseContainer;

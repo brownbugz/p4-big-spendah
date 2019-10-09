@@ -14,6 +14,7 @@ async function createExpense(req, res) {
     }
 }
 
+// no idea what i'm doing - trying to save expense items in container
 async function expenseItems(req, res) {
     const expenses = await Expense.find({});
     res.json(expenses);
