@@ -25,7 +25,7 @@ class App extends Component {
     this.setState({category: event.target.value});
   }
 
-  onSubmit = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
       category: "",
@@ -51,12 +51,18 @@ class App extends Component {
           <h2>Hey Big Spendah!</h2>
         </header>
 
-        <Switch>
+        <NavBar 
+          user={this.state.user}
+          handleLogout={this.handleLogout}
+        />
 
-          <NavBar 
-            user={this.state.user}
-            handleLogout={this.handleLogout}
-          />
+        <Switch>
+          <Route exact path="/expenses" render={({history}) => 
+            <ExpenseContainer 
+              items={this.state.items} 
+              handleSubmit={this.handleSubmit}
+            />
+          } />
 
           <Route exact path="/signup" render={({history}) =>
             <SignupPage
@@ -73,18 +79,6 @@ class App extends Component {
           }/>
           
         </Switch>
-        <div>
-          {/* this is supposed to add expense per item,
-          but i need to revise what to input */}
-          <form className="App-form" onSubmit={this.onSubmit}>
-            <input value={this.state.category} onChange={this.onChange} />
-            <button>Submit</button>
-          </form>
-          <ExpenseContainer 
-            items={this.state.items} 
-          />
-        </div>
-    );
       </div>
     );
   }
