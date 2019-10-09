@@ -14,20 +14,24 @@ class App extends Component {
     super(props);
     this.state = {
       user: userService.getUser(),
-      term: "",
+      category: "",
+      name: String,
+      cost: String,
       items: [],
     };
   }
 
   onChange = (event) => {
-    this.setState({term: event.target.value});
+    this.setState({category: event.target.value});
   }
 
   onSubmit = (event) => {
     event.preventDefault();
     this.setState({
-      term: "",
-      items: [...this.state.items, this.state.term]
+      category: "",
+      name: String,
+      cost: String,
+      items: [...this.state.items, this.state.category, this.state.name, this.state.cost]
     });
   }
 
@@ -47,12 +51,12 @@ class App extends Component {
           <h2>Hey Big Spendah!</h2>
         </header>
 
-        <NavBar 
-          user={this.state.user}
-          handleLogout={this.handleLogout}
-        />
-
         <Switch>
+
+          <NavBar 
+            user={this.state.user}
+            handleLogout={this.handleLogout}
+          />
 
           <Route exact path="/signup" render={({history}) =>
             <SignupPage
@@ -69,6 +73,18 @@ class App extends Component {
           }/>
           
         </Switch>
+        <div>
+          {/* this is supposed to add expense per item,
+          but i need to revise what to input */}
+          <form className="App-form" onSubmit={this.onSubmit}>
+            <input value={this.state.category} onChange={this.onChange} />
+            <button>Submit</button>
+          </form>
+          <ExpenseContainer 
+            items={this.state.items} 
+          />
+        </div>
+    );
       </div>
     );
   }

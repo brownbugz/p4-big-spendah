@@ -8,6 +8,7 @@ const ExpenseCard = (props) => {
     return (
         <div>
             <Card>
+                {/* must link this card to the expense container */}
                 <Link to={`/expense${props.id}`}>
                 </Link>
             </Card>
