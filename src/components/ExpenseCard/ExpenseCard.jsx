@@ -6,11 +6,9 @@ import './ExpenseCard.css';
 
 const ExpenseCard = (props) => {
 
-
     return (
         <div>
             <Card>
-                <input type="text"></input>
                 
             </Card>
         </div>

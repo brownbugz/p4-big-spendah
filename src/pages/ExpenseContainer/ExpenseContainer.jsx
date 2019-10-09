@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 
 class ExpenseContainer extends Component {
@@ -13,7 +13,7 @@ class ExpenseContainer extends Component {
   
   render() {
     return (
-      <form onSubmit={props.onSubmit}>
+      <form onSubmit={this.onSubmit}>
         <Container>
           <Row>
             <label>Category: <input type="text" name="category" /></label>
