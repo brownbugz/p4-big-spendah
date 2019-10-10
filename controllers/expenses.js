@@ -6,12 +6,13 @@ module.exports = {
 }
 
 async function createExpense(req, res) {
-    console.log('user: ', req.user)
     try {
-        await Expense.createExpense(req.body);
-        expenseItems(req, res);
+        let newExpense = new Expense(req.body);
+        newExpense.user = req.user.id;
+        await newExpense.save();
+        res.json(newExpense);
     } catch(err) {
-        res.json({err});
+        res.status(400).json(err);
     }
 }
 

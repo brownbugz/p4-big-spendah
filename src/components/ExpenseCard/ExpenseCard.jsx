@@ -9,7 +9,7 @@ const ExpenseCard = (props) => {
     return (
         <div>
             <Card>
-                {/* display one card with form contents here onClick  */}
+                {props.name}
             </Card>
         </div>
     );

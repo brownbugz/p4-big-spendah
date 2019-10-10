@@ -7,6 +7,7 @@ import ExpenseContainer from '../ExpenseContainer/ExpenseContainer';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
+import expenseService from '../../utils/expenseService';
 
 
 class App extends Component {
@@ -15,22 +16,32 @@ class App extends Component {
     this.state = {
       user: userService.getUser(),
       category: "",
-      name: String,
-      cost: Number,
-      items: [],
+      name: "",
+      cost: 0,
+      items: expenseService.index(),
     };
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(event.target.category)
+
+  handleChange = (e) => {
     this.setState({
-      category: event.target.category,
-      name: event.target.name,
-      cost: event.target.cost,
-      items: [...this.state.items, this.state.category, this.state.name, this.state.cost]
+      [e.target.name]: e.target.value
     });
-    console.log(this.state);
+  }
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+
+    let createdItem = await expenseService.create({
+      category: this.state.category,
+      name: this.state.name,
+      cost: this.state.cost
+    });
+    console.log(createdItem);
+
+    this.setState({
+      items: [...this.state.items, createdItem]
+    });
   }
 
 
@@ -60,6 +71,7 @@ class App extends Component {
             <ExpenseContainer 
               items={this.state.items} 
               handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange}
             />
           } />
 

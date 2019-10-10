@@ -1,41 +1,50 @@
 import React, {Component} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import expenseService from '../../utils/expenseService';
+import ExpenseCard from '../../components/ExpenseCard/ExpenseCard';
 
 
 class ExpenseContainer extends Component {
-  constructor() {
-    super();
-  }
-
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
   
   render() {
+    let expenseCards = this.props.items.map((expense, idx) => {
+      return (
+        <ExpenseCard 
+          name={expense.name}
+          category={expense.category}
+          cost={expense.cost}
+        />
+      )
+    })
+
     return (
-      <form onSubmit={this.props.handleSubmit}>
-        <Container>
-          <Row>
-            <label>Category: <input type="text" name="category" /></label>
-          </Row>
-          <Row>
-            <label>Name of Item: <input type="text" name="name" /></label>
-          </Row>
-          <Row>
-            <label>Cost of Item: $<input type="number" name="cost" /></label>
-          </Row>
-          <Row>
-            <button>Submit</button>
-          </Row>
-        </Container>
-      </form>
+      <div>
+        <form onSubmit={this.props.handleSubmit}>
+          <Container>
+            <Row>
+              <label>Category: <input type="text" name="category" onChange={this.props.handleChange} /></label>
+            </Row>
+            <Row>
+              <label>Name of Item: <input type="text" name="name" onChange={this.props.handleChange} /></label>
+            </Row>
+            <Row>
+              <label>Cost of Item: $<input type="number" name="cost" onChange={this.props.handleChange} /></label>
+            </Row>
+            <Row>
+              <button>Submit</button>
+            </Row>
+          </Container>
+        </form>
+
+        this.state.items.length ?
+          {expenseCards}
+        :
+        "Loading..."
+
+      </div>
     );
   }
-  //  the ExpenseCard should display at the bottom
+  
 }
 
 export default ExpenseContainer;
