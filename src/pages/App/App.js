@@ -22,6 +22,18 @@ class App extends Component {
     };
   }
 
+  async componentDidMount() {
+    const items = await expenseService.index();
+    this.setState({items}); 
+  }
+
+  handleDelete (expenseToBeDeleted) {
+    var newExpenses = this.state.items.filter((_item) => {
+      return _item != expenseToBeDeleted
+    });
+    this.setState({items: newExpenses});
+  }
+
 
   handleChange = (e) => {
     this.setState({

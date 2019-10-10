@@ -9,7 +9,15 @@ const ExpenseCard = (props) => {
     return (
         <div>
             <Card>
+                {props.category}
                 {props.name}
+                {props.cost}
+                {props.id}
+                <button 
+                    onClick={this.props.handleDelete.bind(null)} 
+                    className="btn btn-danger btn-sm">
+                        Delete
+                </button>
             </Card>
         </div>
     );

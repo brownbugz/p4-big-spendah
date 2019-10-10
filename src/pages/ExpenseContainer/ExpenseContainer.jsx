@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import './ExpenseContainer.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import ExpenseCard from '../../components/ExpenseCard/ExpenseCard';
+
 
 
 class ExpenseContainer extends Component {
@@ -13,6 +15,7 @@ class ExpenseContainer extends Component {
           name={expense.name}
           category={expense.category}
           cost={expense.cost}
+          key={idx}
         />
       )
     })
