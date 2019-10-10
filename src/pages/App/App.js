@@ -16,24 +16,23 @@ class App extends Component {
       user: userService.getUser(),
       category: "",
       name: String,
-      cost: String,
+      cost: Number,
       items: [],
     };
   }
 
-  onChange = (event) => {
-    this.setState({category: event.target.value});
-  }
-
   handleSubmit = (event) => {
     event.preventDefault();
+    console.log(event.target.category)
     this.setState({
-      category: "",
-      name: String,
-      cost: String,
+      category: event.target.category,
+      name: event.target.name,
+      cost: event.target.cost,
       items: [...this.state.items, this.state.category, this.state.name, this.state.cost]
     });
+    console.log(this.state);
   }
+
 
   handleLogout = () => {
     userService.logout();

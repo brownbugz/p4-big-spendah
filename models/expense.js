@@ -20,7 +20,8 @@ var expenseSchema = new Schema({
 });
 
 expenseSchema.pre('save', function(next) {
-    
+    this.category = this.category.substr().toUpperCase();
+    next();
 })
 
 module.exports = mongoose.model('Expense', expenseSchema);

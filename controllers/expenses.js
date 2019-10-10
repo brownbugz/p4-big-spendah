@@ -6,6 +6,7 @@ module.exports = {
 }
 
 async function createExpense(req, res) {
+    console.log('user: ', req.user)
     try {
         await Expense.createExpense(req.body);
         expenseItems(req, res);
@@ -14,7 +15,6 @@ async function createExpense(req, res) {
     }
 }
 
-// no idea what i'm doing - trying to save expense items in container
 async function expenseItems(req, res) {
     const expenses = await Expense.find({});
     res.json(expenses);

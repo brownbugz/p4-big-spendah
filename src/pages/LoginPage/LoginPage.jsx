@@ -15,7 +15,7 @@ class LoginPage extends Component {
       // Using ES2015 Computed Property Names
       [e.target.name]: e.target.value
     });
-  }
+  } 
 
   handleSubmit = async (e) => {
     e.preventDefault();
