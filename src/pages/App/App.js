@@ -18,7 +18,7 @@ class App extends Component {
       category: "",
       name: "",
       cost: 0,
-      items: expenseService.index(),
+      items: [],
     };
   }
 
@@ -29,7 +29,7 @@ class App extends Component {
 
   handleDelete (expenseToBeDeleted) {
     var newExpenses = this.state.items.filter((_item) => {
-      return _item != expenseToBeDeleted
+      return _item !== expenseToBeDeleted
     });
     this.setState({items: newExpenses});
   }

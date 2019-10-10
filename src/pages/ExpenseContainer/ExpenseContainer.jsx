@@ -31,7 +31,7 @@ class ExpenseContainer extends Component {
               <label>Name of Item: <input type="text" name="name" onChange={this.props.handleChange} /></label>
             </Row>
             <Row>
-              <label>Cost of Item: $<input type="number" name="cost" onChange={this.props.handleChange} /></label>
+              <label>Cost of Item: $ <input type="number" name="cost" onChange={this.props.handleChange} /></label>
             </Row>
             <Row>
               <button>Submit</button>
@@ -39,10 +39,7 @@ class ExpenseContainer extends Component {
           </Container>
         </form>
 
-        this.state.items.length ?
           {expenseCards}
-        :
-        "Loading..."
 
       </div>
     );
