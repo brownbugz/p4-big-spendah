@@ -28,6 +28,13 @@ class App extends Component {
     this.setState({items}); 
   }
 
+  handleAddExpense = async newExpData => {
+    const newExp = await expenseAPI.create(newExpData);
+    this.setState(state => ({
+      items: [...state.items, newExp]
+    }), () => this.props.history.push('/'));
+  }
+
   handleUpdate = async updatedExpData => {
     const updatedExpense = await expenseAPI.update(updatedExpData);
     const newItemsArray = this.state.items.map(itm => 
@@ -93,12 +100,34 @@ class App extends Component {
         />
 
         <Switch>
-          <Route exact path="/expenses" render={({history}) => 
+          {/* <Route exact path="/expenses" render={({history}) => 
             <ExpenseContainer 
               items={this.state.items} 
               handleSubmit={this.handleSubmit}
               handleChange={this.handleChange}
               handleDelete={this.handleDelete}
+            />
+          } /> */}
+
+          <Route exact path='/expenses' render={({history}) => 
+            <ExpenseListPage
+              items={this.state.items}
+              handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange}
+              handleDelete={this.handleDelete}
+            />
+          } />
+
+          <Route exact path='/add' render={() => 
+            <AddExpensePage
+              handleAddExpense = {this.handleAddExpense}
+            />
+          } />
+
+          <Route exact path='/edit' render={({history, location}) => 
+            <EditExpensePage
+              handleUpdate={this.handleUpdate}
+              location={location}
             />
           } />
 

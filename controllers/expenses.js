@@ -2,7 +2,6 @@ var Expense = require('../models/expense');
 
 module.exports = {
     createExpense,
-    expenseItems,
     delete: deleteOne,
     update,
 }
@@ -18,10 +17,6 @@ async function createExpense(req, res) {
     }
 }
 
-async function expenseItems(req, res) {
-    const expenses = await Expense.find({});
-    res.json(expenses);
-}
 
 async function deleteOne(req, res) {
     const deletedExpense = await Expense.findByIdAndRemove(req.params.id);
