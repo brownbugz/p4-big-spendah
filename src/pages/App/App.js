@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import * as expenseAPI from '../../services/expenses-api';
 import {Route, Switch} from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import ExpenseContainer from '../ExpenseContainer/ExpenseContainer';
@@ -27,15 +28,24 @@ class App extends Component {
     this.setState({items}); 
   }
 
-  // handleUpdate (expenseToBeUpdated) {
-    
-  // }
+  handleUpdate = async updatedExpData => {
+    const updatedExpense = await expenseAPI.update(updatedExpData);
+    const newItemsArray = this.state.items.map(itm => 
+      itm._id === updatedExpense._id ? updatedExpense : itm
+    );
+    this.setState(
+      {items: newItemsArray},
+      // Using cb to wait for state to update before rerouting
+      () => this.props.history.push('/')
+    );
+  }
 
-  handleDelete (expenseToBeDeleted) {
-    var newExpenses = this.state.items.filter((_item) => {
-      return _item !== expenseToBeDeleted
-    });
-    this.setState({items: newExpenses});
+  handleDelete= async id => {
+    await expenseAPI.deleteOne(id);
+    this.setState(state => ({
+      // Filter returns a NEW array
+      items: state.items.filter(itm => itm._id !== id)
+    }), () => this.props.history.push('/'));
   }
 
 
