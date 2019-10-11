@@ -27,6 +27,10 @@ class App extends Component {
     this.setState({items}); 
   }
 
+  // handleUpdate (expenseToBeUpdated) {
+    
+  // }
+
   handleDelete (expenseToBeDeleted) {
     var newExpenses = this.state.items.filter((_item) => {
       return _item !== expenseToBeDeleted
@@ -84,6 +88,7 @@ class App extends Component {
               items={this.state.items} 
               handleSubmit={this.handleSubmit}
               handleChange={this.handleChange}
+              handleDelete={this.handleDelete}
             />
           } />
 

@@ -22,8 +22,8 @@ class ExpenseContainer extends Component {
 
     return (
       <div>
-        <form onSubmit={this.props.handleSubmit}>
-          <Container>
+        <form onSubmit={this.props.handleSubmit} className="form">
+          <Container >
             <Row>
               <label>Category: <input type="text" name="category" onChange={this.props.handleChange} /></label>
             </Row>

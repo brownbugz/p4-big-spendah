@@ -10,20 +10,17 @@ const ExpenseCard = (props) => {
         <div>
             <Card className="card">
                         <label>Category: {props.category}</label>
-                        <br />
                         <label>Name of Item: {props.name}</label>
-                        <br />
                         <label>Cost: ${props.cost}</label>
-                        <br />
                         <button
-                            onClick={() => props.handleDelete()}
+                            onClick={props.handleDelete}
                             className="btn btn-danger btn-sm"
                         >
                             Delete
                         </button>
-                        &nbsp;&nbsp;-&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;
                         <button
-                            onClick={() => props.handleUpdate()}
+                            onClick={props.handleUpdate}
                             className="btn btn-danger btn-sm"
                         >
                             Edit
