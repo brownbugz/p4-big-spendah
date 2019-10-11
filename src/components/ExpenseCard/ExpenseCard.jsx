@@ -5,15 +5,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './ExpenseCard.css';
 
 
-function ExpenseCard({expense, handleDelete}) { 
+function ExpenseCard({items, handleDelete}) { 
     return (
         <div>
             <Card className="card">
-                <label>Category: {expense.category}</label>
-                <label>Name of Item: {expense.name}</label>
-                <label>Cost: ${expense.cost}</label>
+                <label>Category: {items.category}</label>
+                <label>Name of Item: {items.name}</label>
+                <label>Cost: ${items.cost}</label>
                 <button
-                    onClick={() => handleDelete(expense._id)}
+                    onClick={() => handleDelete(items._id)}
                     className="btn btn-xs btn-danger"
                 >
                     Delete
@@ -23,7 +23,7 @@ function ExpenseCard({expense, handleDelete}) {
                     className="btn btn-xs btn-warning"
                     to={{
                         pathname: '/edit',
-                        state: {expense}
+                        state: {items}
                     }}
                 >
                     Edit
