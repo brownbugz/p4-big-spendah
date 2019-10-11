@@ -4,6 +4,8 @@ module.exports = {
     createExpense,
     delete: deleteOne,
     update,
+    index,
+    show,
 }
 
 async function createExpense(req, res) {
@@ -26,4 +28,14 @@ async function deleteOne(req, res) {
   async function update(req, res) {
     const updatedExpense = await Expense.findByIdAndUpdate(req.params.id, req.body, {new: true});
     res.status(200).json(updatedExpense);
+  }
+
+  async function index(req, res) {
+    const items = await Expense.find({});
+    res.status(200).json(items);
+  }
+  
+  async function show(req, res) {
+    const item = await Expense.findById(req.params.id);
+    res.status(200).json(item);
   }

@@ -39,7 +39,7 @@ class App extends Component {
     const newExp = await expenseService.create(newExpData);
     this.setState(state => ({
       items: [...state.items, newExp]
-    }), () => this.props.history.push('/expenses'));
+    }), () => this.props.history.push('/'));
   }
 
   handleUpdate = async updatedExpData => {
@@ -50,7 +50,7 @@ class App extends Component {
     this.setState(
       {items: newItemsArray},
       // Using cb to wait for state to update before rerouting
-      () => this.props.history.push('/expenses')
+      () => this.props.history.push('/')
     );
   }
 
@@ -59,7 +59,7 @@ class App extends Component {
     this.setState(state => ({
       // Filter returns a NEW array
       items: state.items.filter(itm => itm._id !== id)
-    }), () => this.props.history.push('/expenses'));
+    }), () => this.props.history.push('/'));
   }
 
 
@@ -110,6 +110,7 @@ class App extends Component {
 
           <Route exact path='/expenses' render={({history}) => 
             <ExpenseListPage
+              history={history}
               items={this.state.items}
               handleSubmit={this.handleSubmit}
               handleChange={this.handleChange}
@@ -125,6 +126,7 @@ class App extends Component {
 
           <Route exact path='/edit' render={({history, location}) => 
             <EditExpensePage
+              history={history}
               handleUpdate={this.handleUpdate}
               location={location}
             />

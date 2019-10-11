@@ -11,6 +11,9 @@ router.post('/', checkAuth, expenseCtrl.createExpense);
 router.delete('/:id', expenseCtrl.delete);
 router.put('/:id', expenseCtrl.update);
 
+router.get('/', expenseCtrl.index);
+router.get('/:id', expenseCtrl.show);
+
 
 /*----- Helper Functions -----*/
 function checkAuth(req, res, next) {
