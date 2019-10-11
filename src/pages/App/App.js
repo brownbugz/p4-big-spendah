@@ -36,10 +36,10 @@ class App extends Component {
   }
 
   handleAddExpense = async newExpData => {
-    const newExp = await expenseAPI.create(newExpData);
+    const newExp = await expenseService.create(newExpData);
     this.setState(state => ({
       items: [...state.items, newExp]
-    }), () => this.props.history.push('/'));
+    }), () => this.props.history.push('/expenses'));
   }
 
   handleUpdate = async updatedExpData => {
@@ -50,7 +50,7 @@ class App extends Component {
     this.setState(
       {items: newItemsArray},
       // Using cb to wait for state to update before rerouting
-      () => this.props.history.push('/')
+      () => this.props.history.push('/expenses')
     );
   }
 
@@ -59,7 +59,7 @@ class App extends Component {
     this.setState(state => ({
       // Filter returns a NEW array
       items: state.items.filter(itm => itm._id !== id)
-    }), () => this.props.history.push('/'));
+    }), () => this.props.history.push('/expenses'));
   }
 
 
