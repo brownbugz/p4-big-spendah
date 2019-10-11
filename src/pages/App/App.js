@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import * as expenseAPI from '../../utils/expenseService';
 import {Route, Switch} from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import SignupPage from '../SignupPage/SignupPage';
@@ -31,7 +30,7 @@ class App extends Component {
   // }
 
   async componentDidMount() {
-    const items = await expenseAPI.getAll();
+    const items = await expenseService.getAll();
     this.setState({items});
   }
 
@@ -43,7 +42,7 @@ class App extends Component {
   }
 
   handleUpdate = async updatedExpData => {
-    const updatedExpense = await expenseAPI.update(updatedExpData);
+    const updatedExpense = await expenseService.update(updatedExpData);
     const newItemsArray = this.state.items.map(itm => 
       itm._id === updatedExpense._id ? updatedExpense : itm
     );
@@ -55,7 +54,7 @@ class App extends Component {
   }
 
   handleDelete= async id => {
-    await expenseAPI.deleteOne(id);
+    await expenseService.deleteOne(id);
     this.setState(state => ({
       // Filter returns a NEW array
       items: state.items.filter(itm => itm._id !== id)

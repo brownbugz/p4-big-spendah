@@ -5,6 +5,7 @@ const BASE_URL = '/api/expenses/';
 export default {
   index,
   create,
+  getAll,
   update,
   delete: deleteOne,
 };
@@ -19,18 +20,18 @@ function index() {
     return fetch(BASE_URL, options).then(res => res.json());
   }
 
-  function create(expense) {
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-        // Add this header - don't forget the space after Bearer
-        'Authorization': 'Bearer ' + tokenService.getToken()
-      },
-      body: JSON.stringify(expense)
-    };
-    return fetch(BASE_URL, options).then(res => res.json());
-  }
+function create(expense) {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+      // Add this header - don't forget the space after Bearer
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    },
+    body: JSON.stringify(expense)
+  };
+  return fetch(BASE_URL, options).then(res => res.json());
+}
 
   export function getAll() {
     return fetch(BASE_URL)
@@ -40,7 +41,9 @@ function index() {
   export function update(exp) {
     return fetch(`${BASE_URL}/${exp._id}`, {
       method: 'PUT',
-      headers: {'content-type': 'application/json'},
+      headers: {'content-type': 'application/json',
+      'Authorization': 'Bearer ' + tokenService.getToken()
+      },
       body: JSON.stringify(exp)
     }).then(res => res.json());
   }
