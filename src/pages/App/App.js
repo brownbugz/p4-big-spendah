@@ -4,9 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as expenseAPI from '../../services/expenses-api';
 import {Route, Switch} from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
-import ExpenseContainer from '../ExpenseContainer/ExpenseContainer';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
+import ExpenseListPage from '../ExpenseListPage/ExpenseListPage';
+import AddExpensePage from '../AddExpensePage/AddExpensePage';
+import EditExpensePage from '../EditExpensePage/EditExpensePage';
 import userService from '../../utils/userService';
 import expenseService from '../../utils/expenseService';
 

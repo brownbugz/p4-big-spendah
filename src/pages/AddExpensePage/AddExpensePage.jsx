@@ -51,7 +51,7 @@ class AddExpensePage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Cost: $</label>
+            <label>Cost of Item: $</label>
             <input
               className="form-control"
               name="cost"
