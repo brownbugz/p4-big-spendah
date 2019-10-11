@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 class EditExpensePage extends Component {
   state = {
     invalidForm: false,
-    formData: this.props.location.state.items
+    formData: this.props.location.state
   };
 
   formRef = React.createRef();
@@ -23,16 +23,17 @@ class EditExpensePage extends Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <>
-        <h3>Edit Expense</h3>
+        <h1>Edit Expense</h1>
         <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Category: (required)</label>
             <input
               className="form-control"
               name="category"
-              value={this.state.formData.category}
+              // value={this.state.formData.category}
               onChange={this.handleChange}
               required
             />
@@ -42,7 +43,7 @@ class EditExpensePage extends Component {
             <input
               className="form-control"
               name="name"
-              value={this.state.formData.name}
+              // value={this.state.formData.name}
               onChange={this.handleChange}
               required
             />
@@ -52,7 +53,7 @@ class EditExpensePage extends Component {
             <input
               className="form-control"
               name="cost"
-              value={this.state.formData.cost}
+              // value={this.state.formData.cost}
               onChange={this.handleChange}
             />
           </div>
@@ -63,7 +64,7 @@ class EditExpensePage extends Component {
           >
             SAVE EXPENSE
           </button>&nbsp;&nbsp;
-          <Link to='/'>CANCEL</Link>
+          <Link to='/expenses'>CANCEL</Link>
         </form>
       </>
     );

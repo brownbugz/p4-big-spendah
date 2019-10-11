@@ -6,6 +6,7 @@ import './ExpenseCard.css';
 
 
 const ExpenseCard = (props) => { 
+    let id = props.id;
     return (
         <div>
             <Card className="card">
@@ -13,7 +14,7 @@ const ExpenseCard = (props) => {
                 <label>Name of Item: {props.name} </label>
                 <label>Cost: ${props.cost} </label>
                 <button
-                    onClick={props.handleDelete}
+                    onClick={() => props.handleDelete(id)}
                     className="btn btn-xs btn-danger"
                 >
                     Delete
@@ -23,7 +24,7 @@ const ExpenseCard = (props) => {
                     className="btn btn-xs btn-warning"
                     to={{
                         pathname: '/edit',
-                        state: []
+                        state: { ...props }
                     }}
                 >
                     Edit
