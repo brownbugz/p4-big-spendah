@@ -12,8 +12,8 @@ class ExpenseContainer extends Component {
     let expenseCards = this.props.items.map((expense, idx) => {
       return (
         <ExpenseCard 
-          name={expense.name}
           category={expense.category}
+          name={expense.name}
           cost={expense.cost}
           key={idx}
         />

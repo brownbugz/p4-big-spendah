@@ -3,6 +3,8 @@ var Expense = require('../models/expense');
 module.exports = {
     createExpense,
     expenseItems,
+    delete: deleteOne,
+    update,
 }
 
 async function createExpense(req, res) {
@@ -20,3 +22,13 @@ async function expenseItems(req, res) {
     const expenses = await Expense.find({});
     res.json(expenses);
 }
+
+async function deleteOne(req, res) {
+    const deletedExpense = await Expense.findByIdAndRemove(req.params.id);
+    res.status(200).json(deletedExpense);
+  }
+  
+  async function update(req, res) {
+    const updatedExpense = await Expense.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.status(200).json(updatedExpense);
+  }

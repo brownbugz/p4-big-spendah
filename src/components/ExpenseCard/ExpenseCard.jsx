@@ -1,30 +1,33 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './ExpenseCard.css';
 
 
-const ExpenseCard = (props) => {
-
+function ExpenseCard({expense, handleDelete}) { 
     return (
         <div>
             <Card className="card">
-                        <label>Category: {props.category}</label>
-                        <label>Name of Item: {props.name}</label>
-                        <label>Cost: ${props.cost}</label>
-                        <button
-                            onClick={props.handleDelete}
-                            className="btn btn-danger btn-sm"
-                        >
-                            Delete
-                        </button>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <button
-                            onClick={props.handleUpdate}
-                            className="btn btn-danger btn-sm"
-                        >
-                            Edit
-                        </button>
+                <label>Category: {expense.category}</label>
+                <label>Name of Item: {expense.name}</label>
+                <label>Cost: ${expense.cost}</label>
+                <button
+                    onClick={() => handleDelete(expense._id)}
+                    className="btn btn-xs btn-danger"
+                >
+                    Delete
+                </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <Link
+                    className="btn btn-xs btn-warning"
+                    to={{
+                        pathname: '/edit',
+                        state: {expense}
+                    }}
+                >
+                    Edit
+                </Link>
             </Card>
         </div>
     );
