@@ -38,7 +38,7 @@ class App extends Component {
     const newExp = await expenseService.create(newExpData);
     this.setState(state => ({
       items: [...state.items, newExp]
-    }), () => this.props.history.push('/'));
+    }), () => this.props.history.push('/expenses'));
   }
 
   handleUpdate = async updatedExpData => {
@@ -49,16 +49,16 @@ class App extends Component {
     this.setState(
       {items: newItemsArray},
       // Using cb to wait for state to update before rerouting
-      () => this.props.history.push('/')
+      () => this.props.history.push('/expenses')
     );
   }
 
-  handleDelete= async id => {
-    await expenseService.deleteOne(id);
+  handleDelete = async id => {
+    await expenseService.delete(id);
     this.setState(state => ({
       // Filter returns a NEW array
       items: state.items.filter(itm => itm._id !== id)
-    }), () => this.props.history.push('/'));
+    }), () => this.props.history.push('/expenses'));
   }
 
 

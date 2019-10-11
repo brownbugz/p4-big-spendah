@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 class EditExpensePage extends Component {
   state = {
     invalidForm: false,
-    formData: this.props.location.state.expense
+    formData: this.props.location.state.items
   };
 
   formRef = React.createRef();
@@ -25,7 +25,7 @@ class EditExpensePage extends Component {
   render() {
     return (
       <>
-        <h1>Edit Expense</h1>
+        <h3>Edit Expense</h3>
         <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Category: (required)</label>
@@ -58,7 +58,7 @@ class EditExpensePage extends Component {
           </div>
           <button
             type="submit"
-            className="btn btn-xs"
+            className="btn btn-success btn-xs"
             disabled={this.state.invalidForm}
           >
             SAVE EXPENSE

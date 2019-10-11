@@ -61,7 +61,7 @@ class AddExpensePage extends Component {
           </div>
           <button
             type="submit"
-            className="btn"
+            className="btn btn-success btn-xs"
             disabled={this.state.invalidForm}
           >
             ADD EXPENSE

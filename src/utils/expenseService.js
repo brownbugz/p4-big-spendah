@@ -33,12 +33,12 @@ function create(expense) {
   return fetch(BASE_URL, options).then(res => res.json());
 }
 
-  export function getAll() {
+  function getAll() {
     return fetch(BASE_URL)
     .then(res => res.json());
   }
   
-  export function update(exp) {
+  function update(exp) {
     return fetch(`${BASE_URL}/${exp._id}`, {
       method: 'PUT',
       headers: {'content-type': 'application/json',
@@ -48,7 +48,7 @@ function create(expense) {
     }).then(res => res.json());
   }
   
-  export function deleteOne(id) {
+  function deleteOne(id) {
     return fetch(`${BASE_URL}/${id}`, {
       method: 'DELETE'
     }).then(res => res.json());
