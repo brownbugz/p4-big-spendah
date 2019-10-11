@@ -4,7 +4,9 @@ const BASE_URL = '/api/expenses/';
 
 export default {
   index,
-  create
+  create,
+  update,
+  delete: deleteOne,
 };
 
 function index() {
@@ -28,4 +30,23 @@ function index() {
       body: JSON.stringify(expense)
     };
     return fetch(BASE_URL, options).then(res => res.json());
+  }
+
+  export function getAll() {
+    return fetch(BASE_URL)
+    .then(res => res.json());
+  }
+  
+  export function update(exp) {
+    return fetch(`${BASE_URL}/${exp._id}`, {
+      method: 'PUT',
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify(exp)
+    }).then(res => res.json());
+  }
+  
+  export function deleteOne(id) {
+    return fetch(`${BASE_URL}/${id}`, {
+      method: 'DELETE'
+    }).then(res => res.json());
   }

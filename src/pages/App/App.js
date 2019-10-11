@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import * as expenseAPI from '../../services/expenses-api';
+import * as expenseAPI from '../../utils/expenseService';
 import {Route, Switch} from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import SignupPage from '../SignupPage/SignupPage';
@@ -25,9 +25,14 @@ class App extends Component {
     };
   }
 
+  // async componentDidMount() {
+  //   const items = await expenseService.index();
+  //   this.setState({items}); 
+  // }
+
   async componentDidMount() {
-    const items = await expenseService.index();
-    this.setState({items}); 
+    const items = await expenseAPI.getAll();
+    this.setState({items});
   }
 
   handleAddExpense = async newExpData => {
@@ -102,14 +107,6 @@ class App extends Component {
         />
 
         <Switch>
-          {/* <Route exact path="/expenses" render={({history}) => 
-            <ExpenseContainer 
-              items={this.state.items} 
-              handleSubmit={this.handleSubmit}
-              handleChange={this.handleChange}
-              handleDelete={this.handleDelete}
-            />
-          } /> */}
 
           <Route exact path='/expenses' render={({history}) => 
             <ExpenseListPage
