@@ -4,7 +4,7 @@
 
 ## Description
 
-Spendah is an expense tracker for personal use. 
+Spendah is an expense tracker for personal use. The name Spendah is a funny way to spell Spender. 
 
 ---
 
