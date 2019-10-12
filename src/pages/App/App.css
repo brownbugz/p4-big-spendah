@@ -1,8 +1,15 @@
+body {
+  background-image: url('/spendah.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
 header {
   display: flex;
   justify-content: center;
   margin: 0 0 20px;
+  color: green;
 }
 
 .App-form {

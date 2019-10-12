@@ -8,26 +8,28 @@ import './ExpenseCard.css';
 const ExpenseCard = (props) => { 
     let id = props.id;
     return (
-        <div>
+        // <div className="card-container">
             <Card className="card">
-                <label>Category: {props.category} </label>
-                <label>Name of Item: {props.name} </label>
-                <label>Cost: ${props.cost} </label>
-                <button
-                    onClick={() => props.handleDelete(id)}
-                    className="btn btn-xs btn-danger"
-                >
-                    Delete
-                </button>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <Link
-                    className="btn btn-xs btn-warning"
-                    to={`/edit/${id}`}
-                >
-                    Edit
-                </Link>
+                <label className="category-label">Category: {props.category} </label>
+                <label className="name-label">Name of Item: {props.name} </label>
+                <label className="cost-label">Cost: ${props.cost} </label>
+                <div>
+                    <button
+                        onClick={() => props.handleDelete(id)}
+                        className="btn btn-xs btn-danger btn-card"
+                    >
+                        Delete
+                    </button>
+                    
+                    <Link
+                        className="btn btn-xs btn-warning"
+                        to={`/edit/${id}`}
+                    >
+                        Edit
+                    </Link>
+                </div>
             </Card>
-        </div>
+        // </div>
     );
 }
 

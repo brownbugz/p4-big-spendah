@@ -6,7 +6,7 @@ function ExpenseListPage(props) {
   return (
     <>
       <h1>Expense List</h1>
-      <div className='ExpenseListPage-grid'>
+      <div className='card-container'>
         {props.items.map(item =>
           <ExpenseCard
             key={item._id}

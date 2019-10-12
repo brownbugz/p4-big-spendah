@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './AddExpensePage.css';
 
 class AddExpensePage extends Component {
   state = {

@@ -3,4 +3,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: .5em;
+    margin: .5em;
 }
+
+.btn-card {
+    margin: .5em;
+}
+
+.category-label {
+    font-weight: bold;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
