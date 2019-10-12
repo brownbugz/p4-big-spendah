@@ -22,10 +22,7 @@ const ExpenseCard = (props) => {
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <Link
                     className="btn btn-xs btn-warning"
-                    to={{
-                        pathname: '/edit',
-                        state: { ...props }
-                    }}
+                    to={`/edit/${id}`}
                 >
                     Edit
                 </Link>

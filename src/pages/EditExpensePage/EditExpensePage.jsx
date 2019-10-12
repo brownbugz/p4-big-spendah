@@ -4,20 +4,26 @@ import {Link} from 'react-router-dom';
 class EditExpensePage extends Component {
   state = {
     invalidForm: false,
-    formData: this.props.location.state
+    cost: "",
+    category: "",
+    name: ""
   };
 
   formRef = React.createRef();
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.handleUpdate(this.state.formData);
+    this.props.handleUpdate({
+      id: this.props.match.params.id,
+      cost: this.state.cost,
+      category: this.state.category,
+      name: this.state.name,
+    });
   };
 
   handleChange = e => {
-    const formData = {...this.state.formData, [e.target.name]: e.target.value};
     this.setState({
-      formData,
+      [e.target.name]: e.target.value,
       invalidForm: !this.formRef.current.checkValidity()
     });
   };

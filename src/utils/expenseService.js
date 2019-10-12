@@ -39,7 +39,8 @@ function create(expense) {
   }
   
   function update(exp) {
-    return fetch(`${BASE_URL}/${exp._id}`, {
+    debugger;
+    return fetch(`${BASE_URL}/${exp.id}`, {
       method: 'PUT',
       headers: {'content-type': 'application/json',
       'Authorization': 'Bearer ' + tokenService.getToken()

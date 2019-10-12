@@ -123,12 +123,12 @@ class App extends Component {
             />
           } />
 
-          <Route exact path='/edit' render={(props) => 
+          <Route exact path='/edit/:id' render={({history, location, match}) => 
             <EditExpensePage
-              { ...props }
-              // history={history}
+              history={history}
               handleUpdate={this.handleUpdate}
-              // location={location}
+              location={location}
+              match={match}
             />
           } />
 
