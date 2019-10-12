@@ -1,3 +1,10 @@
+body {
+  background-image: url('/spendah.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .LoginPage {
     display: flex;
     flex-flow: column nowrap;
