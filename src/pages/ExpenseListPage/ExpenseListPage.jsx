@@ -5,7 +5,7 @@ import ExpenseCard from '../../components/ExpenseCard/ExpenseCard';
 function ExpenseListPage(props) {
   return (
     <>
-      <h1>Expense List</h1>
+      <h2>Expense List</h2>
       <div className='card-container'>
         {props.items.map(item =>
           <ExpenseCard

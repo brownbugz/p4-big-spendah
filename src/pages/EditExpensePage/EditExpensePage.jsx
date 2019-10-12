@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import './EditExpensePage.css';
 
 class EditExpensePage extends Component {
   state = {
@@ -32,10 +33,10 @@ class EditExpensePage extends Component {
     console.log(this.props)
     return (
       <>
-        <h1>Edit Expense</h1>
+        <h2>Edit Expense</h2>
         <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Category: (required)</label>
+            <label className="edit-label">Category: (required)</label>
             <input
               className="form-control"
               name="category"
@@ -45,7 +46,7 @@ class EditExpensePage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Name of Item: (required)</label>
+            <label className="edit-label">Name of Item: (required)</label>
             <input
               className="form-control"
               name="name"
@@ -55,7 +56,7 @@ class EditExpensePage extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Cost: $</label>
+            <label className="edit-label">Cost: $</label>
             <input
               className="form-control"
               name="cost"
