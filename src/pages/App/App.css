@@ -1,15 +1,20 @@
 body {
-  background-image: url('/spendah.jpg');
+  background-image: url('/spendah2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
-header {
+.App-header {
   display: flex;
   justify-content: center;
   margin: 0 0 20px;
-  color: green;
+  color: red;
+}
+
+h1 {
+  font-weight: bold;
+  color: red;
 }
 
 .App-form {
