@@ -30,7 +30,6 @@ class EditExpensePage extends Component {
   };
 
   render() {
-    console.log(this.props)
     return (
       <>
         <h2>Edit Expense</h2>
@@ -40,7 +39,6 @@ class EditExpensePage extends Component {
             <input
               className="form-control"
               name="category"
-              // value={this.state.formData.category}
               onChange={this.handleChange}
               required
             />
@@ -50,7 +48,6 @@ class EditExpensePage extends Component {
             <input
               className="form-control"
               name="name"
-              // value={this.state.formData.name}
               onChange={this.handleChange}
               required
             />
@@ -60,7 +57,6 @@ class EditExpensePage extends Component {
             <input
               className="form-control"
               name="cost"
-              // value={this.state.formData.cost}
               onChange={this.handleChange}
             />
           </div>

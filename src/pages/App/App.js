@@ -24,11 +24,6 @@ class App extends Component {
     };
   }
 
-  // async componentDidMount() {
-  //   const items = await expenseService.index();
-  //   this.setState({items}); 
-  // }
-
   async componentDidMount() {
     const items = await expenseService.getAll();
     this.setState({items});
